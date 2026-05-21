@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="advance_campaign.css">
     <link rel="stylesheet" href="style2.css">
     <style>
-                .step {
+        .step {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -68,8 +68,9 @@
             color: #ccc;
             font-size: 12px;
         }
-        .menu{
-            flex:1;
+
+        .menu {
+            flex: 1;
         }
 
         /* =========================
@@ -100,7 +101,7 @@
             background: #22c55e;
             border-radius: 50%;
             flex-shrink: 0;
-            box-shadow: 0 0 0 3px rgba(34,197,94,0.18);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
         }
 
         /* SELECTED CARD */
@@ -349,7 +350,7 @@
         .import-card:hover {
             border-color: #4e73f8;
             transform: translateY(-3px);
-            box-shadow: 0 6px 24px rgba(78,115,248,0.10);
+            box-shadow: 0 6px 24px rgba(78, 115, 248, 0.10);
         }
 
         .card-icon {
@@ -512,7 +513,7 @@
 
             .sidebar.active {
                 left: 0;
-                box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+                box-shadow: 4px 0 30px rgba(0, 0, 0, 0.15);
             }
 
             .main-content {
@@ -590,7 +591,8 @@
                 gap: 6px;
             }
 
-            .step-icon, .step-iconnn {
+            .step-icon,
+            .step-iconnn {
                 width: 32px;
                 height: 32px;
             }
@@ -737,7 +739,7 @@
 
         <!-- CONTENT -->
 
-               <!-- CONTENT -->
+        <!-- CONTENT -->
         <section class="content-wrapper">
 
             <!-- STEPPER -->
@@ -831,49 +833,45 @@
 
                 </div>
 
-            <!-- PASTE LINKEDIN SEARCH URL SECTION -->
-            <div class="paste-section" id="pasteSection">
+                <!-- PASTE LINKEDIN SEARCH URL SECTION -->
+                <div class="paste-section" id="pasteSection">
 
-                <div class="paste-header">
-                    <div class="paste-header-left">
-                        <span class="paste-circle"></span>
-                        <h3>Paste LinkedIn Search URL</h3>
-                    </div>
-                </div>
-
-                <div class="paste-body">
-
-                    <div class="paste-info">
-                        <div class="paste-info-icon">
-                            <i class="fa-solid fa-info"></i>
-                        </div>
-                        <span>
-                            Find your target audience with
-                            <a href="#">LinkedIn Search</a> or
-                            <a href="#">Sales Navigator</a> or
-                            <a href="#">Post URL</a> or
-                            <a href="#">Group URL</a>
-                        </span>
-                        <div class="paste-info-right">
-                            <a href="#"><i class="fa-regular fa-circle-question"></i> Search Guide</a>
+                    <div class="paste-header">
+                        <div class="paste-header-left">
+                            <span class="paste-circle"></span>
+                            <h3>Paste LinkedIn Search URL</h3>
                         </div>
                     </div>
 
-                    <div class="paste-input-row">
-                        <input
-                            type="text"
-                            class="paste-input"
-                            id="linkedinUrl"
-                            placeholder="https://www.linkedin.com/search/results/people/?keywords="
-                        />
-                        <button class="validate-btn" id="validateBtn">Validate</button>
+                    <div class="paste-body">
+
+                        <div class="paste-info">
+                            <div class="paste-info-icon">
+                                <i class="fa-solid fa-info"></i>
+                            </div>
+                            <span>
+                                Find your target audience with
+                                <a href="#">LinkedIn Search</a> or
+                                <a href="#">Sales Navigator</a> or
+                                <a href="#">Post URL</a> or
+                                <a href="#">Group URL</a>
+                            </span>
+                            <div class="paste-info-right">
+                                <a href="#"><i class="fa-regular fa-circle-question"></i> Search Guide</a>
+                            </div>
+                        </div>
+
+                        <div class="paste-input-row">
+                            <input type="text" class="paste-input" id="linkedinUrl"
+                                placeholder="https://www.linkedin.com/search/results/people/?keywords=" />
+                            <button class="validate-btn" id="validateBtn">Validate</button>
+                        </div>
+
+                        <p class="paste-hint">Paste the search URL directly from LinkedIn</p>
+
                     </div>
 
-                    <p class="paste-hint">Paste the search URL directly from LinkedIn</p>
-
                 </div>
-
-            </div>
 
 
             </div>
@@ -889,60 +887,59 @@
 
     </main>
 
-
-
-
 </body>
 
 </html>
-    <!-- JS -->
-    <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const sidebar = document.getElementById("sidebar");
-
-        menuToggle.addEventListener("click", () => {
-            sidebar.classList.toggle("active");
-        });
-
-        /* =========================
-   WORKFLOW MODAL
+<!-- JS -->
+<script>
+    /* =========================
+   MOBILE SIDEBAR TOGGLE
 ========================= */
 
-        const campaignBtn = document.querySelector(".campaign-btn");
-        const workflowModal = document.getElementById("workflowModal");
-        const closeModal = document.getElementById("closeModal");
-        const secondaryCloseBtn = document.querySelector(".secondary-btn");
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+const menuIcon = menuToggle.querySelector("i");
 
-        /* OPEN MODAL */
+/* TOGGLE SIDEBAR */
 
-        campaignBtn.addEventListener("click", () => {
+menuToggle.addEventListener("click", () => {
 
-            workflowModal.classList.add("active");
-            document.body.style.overflow = "hidden";
+    sidebar.classList.toggle("active");
 
-        });
+    /* CHANGE ICON */
 
-        /* CLOSE MODAL */
+    if (sidebar.classList.contains("active")) {
 
-        function closeWorkflowModal() {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-xmark");
 
-            workflowModal.classList.remove("active");
-            document.body.style.overflow = "";
+        document.body.style.overflow = "hidden";
 
-        }
+    } else {
 
-        closeModal.addEventListener("click", closeWorkflowModal);
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
 
-        secondaryCloseBtn.addEventListener("click", closeWorkflowModal);
+        document.body.style.overflow = "";
 
-        /* CLOSE OUTSIDE */
+    }
 
-        workflowModal.addEventListener("click", (e) => {
+});
 
-            if (e.target === workflowModal) {
-                closeWorkflowModal();
-            }
+/* RESET ON DESKTOP */
 
-        });
+window.addEventListener("resize", () => {
 
-    </script>
+    if (window.innerWidth > 768) {
+
+        sidebar.classList.remove("active");
+
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+</script>

@@ -33,7 +33,7 @@ body {
     color: #fff;
     border-radius: 10px;
     font-size: 18px;
-    z-index: 999;
+    z-index: 1100;
     display: none;
 }
 
@@ -485,15 +485,27 @@ body {
    MOBILE
 ========================= */
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
 
     .menu-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .sidebar {
+        position: fixed;
+        top: 0;
         left: -100%;
-        z-index: 1000;
+        width: 260px;
+        height: 100vh;
+        background: #fff;
+        z-index: 1001;
+        transition: left 0.3s ease;
     }
 
     .sidebar.active {
@@ -507,21 +519,36 @@ body {
     }
 
     .topbar {
-        margin-top: 55px;
-    }
-
-    .top-profile-text {
-        display: none;
+        margin-top: 60px;
     }
 
     .import-cards {
         grid-template-columns: 1fr;
     }
 
-    .stepper {
-        overflow-x: auto;
-    }
+}
 
+/* =========================
+   OVERLAY
+========================= */
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.4);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 999;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* =========================
