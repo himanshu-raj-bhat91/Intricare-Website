@@ -1,0 +1,1069 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #f5f5f5;
+    color: #1d1d1d;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    background: #4e73f8;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1200;
+    display: none;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: #fff;
+    border-right: 1px solid #ececec;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+/* LOGO */
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    gap: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo img {
+    width: 24px;
+}
+
+.logo h2 {
+    font-size: 17px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.collapse-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #f3f3f3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collapse-btn img {
+    width: 16px;
+}
+
+/* MENU */
+
+.menu {
+    flex: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #666;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.menu-item img {
+    width: 18px;
+}
+
+.menu-item:hover {
+    background: #edf2ff;
+    color: #4e73f8;
+}
+
+.menu-item.active {
+    background: linear-gradient(90deg, #4e73f8, #6f8cff);
+    color: #fff;
+}
+
+/* PROFILE CARD */
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.profile-card {
+    background: #f7f7f7;
+    padding: 16px;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.profile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    min-width: 0;
+}
+
+.profile-info img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.profile-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.profile-info p {
+    font-size: 13px;
+    color: #777;
+}
+
+.logout-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #e9edf7;
+    color: #4e73f8;
+    flex-shrink: 0;
+}
+
+.email {
+    margin-top: 15px;
+}
+
+.email span {
+    font-size: 12px;
+    color: #999;
+}
+
+.email p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    word-break: break-word;
+}
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+    background: #f1f1f1;
+    border-radius: 40px;
+    padding: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.theme-btn {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #666;
+    font-size: 14px;
+}
+
+.theme-btn.active {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 20px;
+    transition: 0.3s ease;
+}
+
+/* TOPBAR */
+
+.topbar {
+    background: #fff;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 16px;
+    gap: 20px;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #888;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb i {
+    color: #4e73f8;
+}
+
+/* PROFILE */
+
+.top-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.top-profile-text {
+    text-align: right;
+}
+
+.top-profile-text h4 {
+    font-size: 14px;
+}
+
+.top-profile-text span {
+    font-size: 12px;
+    color: #888;
+}
+
+.top-avatar {
+    position: relative;
+}
+
+.top-avatar img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.status-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #2ecc71;
+    border-radius: 50%;
+    right: 0;
+    bottom: 2px;
+    border: 2px solid #fff;
+}
+
+/* CONTENT WRAPPER */
+
+.content-wrapper {
+    background: #fff;
+    border-radius: 16px;
+    min-height: calc(100vh - 120px);
+    padding: 24px;
+    width: 100%;
+}
+
+/* FILTER AREA */
+
+.filter-area {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.select-box {
+    min-width: 180px;
+}
+
+.select-box select {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0 14px;
+    outline: none;
+    color: #666;
+    cursor: pointer;
+    background: #fff;
+}
+
+.search-box {
+    width: 260px;
+    max-width: 100%;
+    height: 44px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 10px;
+}
+
+.search-box img {
+    width: 16px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
+}
+
+/* EMPTY STATE */
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    min-height: 60vh;
+}
+
+.empty-state img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+}
+
+.campaign-btn {
+    margin-top: 25px;
+    background: linear-gradient(90deg, #4e73f8, #6f8cff);
+    border: none;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.campaign-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(78, 115, 248, 0.3);
+}
+
+/* =========================
+   LARGE SCREEN
+========================= */
+
+@media (min-width: 1440px) {
+
+    .main-content {
+        padding: 30px;
+    }
+
+    .content-wrapper {
+        min-height: calc(100vh - 140px);
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+
+    .topbar {
+        padding: 16px 18px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar {
+        left: -100%;
+        width: 260px;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .topbar {
+        margin-top: 60px;
+        padding: 16px;
+    }
+
+    .top-profile-text {
+        display: none;
+    }
+
+    .filter-area {
+        flex-direction: column;
+    }
+
+    .select-box,
+    .search-box {
+        width: 100%;
+    }
+
+    .content-wrapper {
+        padding: 18px;
+    }
+
+    .empty-state {
+        min-height: 50vh;
+    }
+
+    .empty-state img {
+        max-width: 240px;
+    }
+
+    .campaign-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+    }
+
+    .content-wrapper {
+        padding: 15px;
+    }
+
+    .profile-card {
+        padding: 14px;
+    }
+
+    .theme-btn {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .campaign-btn {
+        width: 100%;
+    }
+}
+
+/* =========================
+   WORKFLOW MODAL
+========================= */
+
+.workflow-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+.workflow-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================
+   MODAL BOX
+========================= */
+
+.workflow-modal {
+    width: 100%;
+    max-width: 610px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    overflow-x: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12),
+        0 2px 10px rgba(0, 0, 0, 0.06);
+
+    transform: translateY(20px) scale(0.96);
+
+    transition: 0.3s ease;
+
+}
+
+.workflow-modal-overlay.active .workflow-modal {
+    transform: translateY(0) scale(1);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.workflow-header {
+    padding: 24px 28px 16px;
+
+    border-bottom: 1px solid #f1f1f1;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 685px;
+
+    gap: 20px;
+}
+
+.workflow-header-content {
+    flex: 1;
+}
+
+.workflow-header h2 {
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #5E5873;
+
+    margin-bottom: 6px;
+}
+
+.workflow-header p {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: #6E6B7B;
+}
+
+/* CLOSE BUTTON */
+
+.close-modal {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    background: #f5f5f5;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #6E6B7B;
+}
+
+.close-modal:hover {
+    background: #ececec;
+    transform: rotate(90deg);
+}
+
+/* =========================
+   BODY
+========================= */
+
+.workflow-body {
+    padding: 24px 28px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+/* =========================
+   WORKFLOW CARD
+========================= */
+
+.workflow-card {
+    border: 1px solid #e9e9ef;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    background: #ffffff;
+}
+
+.workflow-card:hover {
+    border-color: #4e73f8;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 24px rgba(78, 115, 248, 0.08);
+}
+
+/* ACTIVE CARD */
+
+.active-workflow {
+    border-color: #c7d5ff;
+
+    background: #f8faff;
+}
+
+/* =========================
+   LEFT SECTION
+========================= */
+
+.workflow-left {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    flex: 1;
+}
+
+/* =========================
+   CUSTOM RADIO BUTTON
+========================= */
+
+.radio {
+    width: 20px;
+    height: 20px;
+
+    min-width: 20px;
+
+    border-radius: 50%;
+
+    border: 2px solid #d6d6d6;
+
+    position: relative;
+
+    margin-top: 3px;
+
+    transition: 0.3s ease;
+
+    background: #ffffff;
+}
+
+/* ACTIVE RADIO */
+
+.active-radio {
+    background: #3563E9;
+
+    border-color: #3563E9;
+}
+
+/* INNER DOT */
+
+.active-radio::after {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.workflow-content {
+    flex: 1;
+}
+
+.workflow-title-row {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+/* TITLE */
+
+.workflow-title-row h3 {
+    font-size: 15px;
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    color: #5E5873;
+}
+
+/* BADGE */
+
+.recommended-badge {
+    background: rgba(40, 199, 111, 0.12);
+
+    color: #28C76F;
+
+    padding: 5px 12px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+/* DESCRIPTION */
+
+.workflow-desc {
+    margin-top: 8px;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    color: #6E6B7B;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.workflow-tags {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-top: 14px;
+}
+
+/* EACH FEATURE */
+
+.workflow-tag {
+    position: relative;
+
+    padding-left: 16px;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    font-weight: 400;
+
+    color: #6E6B7B;
+}
+
+/* CUSTOM DOT */
+
+.workflow-tag::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    background: #B9B9C3;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.workflow-image {
+    flex-shrink: 0;
+}
+
+.workflow-image img {
+    width: 78px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.workflow-footer {
+    padding: 0 28px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+}
+
+/* BUTTON */
+
+.modal-btn {
+    min-width: 95px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+/* CLOSE BUTTON */
+
+.secondary-btn {
+    background: #E8E8E8;
+
+    color: #6E6B7B;
+}
+
+.secondary-btn:hover {
+    background: #e9e9ef;
+}
+
+/* NEXT BUTTON */
+
+.primary-btn {
+    background: linear-gradient(90deg, #4e73f8, #6f8cff);
+
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 20px rgba(78, 115, 248, 0.22);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+    .workflow-modal {
+        max-width: 100%;
+    }
+
+    .workflow-header {
+        padding: 20px;
+    }
+
+    .workflow-body {
+        padding: 20px;
+    }
+
+    .workflow-footer {
+        padding: 0 20px 20px;
+    }
+
+    .workflow-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .workflow-image {
+        width: 100%;
+        display: flex;
+        /* justify-content: flex-end; */
+    }
+
+    .workflow-image img {
+        width: 70px;
+    }
+
+    .workflow-title-row h3 {
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .workflow-modal-overlay {
+        padding: 14px;
+    }
+
+    .workflow-header {
+        padding: 18px;
+    }
+
+    .workflow-header h2 {
+        font-size: 18px;
+    }
+
+    .workflow-header p {
+        font-size: 13px;
+    }
+
+    .workflow-body {
+        padding: 18px;
+    }
+
+    .workflow-card {
+        padding: 16px;
+    }
+
+    .workflow-footer {
+        flex-direction: column;
+
+        padding: 0 18px 18px;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
+
+    .workflow-tags {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .workflow-image img {
+        width: 60px;
+    }
+}

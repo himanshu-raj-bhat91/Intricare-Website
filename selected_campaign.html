@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign Workflow</title>
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="advance_campaign.css">
+    <link rel="stylesheet" href="style2.css">
+    <style>
+                .step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .step-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: #E8E8E8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            flex-shrink: 0;
+        }
+
+        .step-iconnn {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: #4e73f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-iconnn img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(10);
+        }
+
+        .active-step {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .arrow {
+            color: #ccc;
+            font-size: 12px;
+        }
+        .menu{
+            flex:1;
+        }
+
+        /* =========================
+           IMPORT SECTION
+        ========================= */
+        .import-section {
+            margin-top: 20px;
+        }
+
+        .import-header {
+            border: 1px solid #ececec;
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .import-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .circle {
+            width: 14px;
+            height: 14px;
+            background: #22c55e;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(34,197,94,0.18);
+        }
+
+        /* SELECTED CARD */
+        .import-card.selected {
+            border-color: #4e73f8;
+            background: #f7f9ff;
+            position: relative;
+        }
+
+        .import-card .card-check {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 18px;
+            height: 18px;
+            background: #4e73f8;
+            border-radius: 4px;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 10px;
+        }
+
+        .import-card.selected .card-check {
+            display: flex;
+        }
+
+        /* PASTE URL SECTION */
+        .paste-section {
+            margin-top: 16px;
+            border: 1px solid #ececec;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .paste-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .paste-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .paste-circle {
+            width: 14px;
+            height: 14px;
+            border: 2.5px solid #4e73f8;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .paste-header h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .paste-body {
+            padding: 18px;
+        }
+
+        .paste-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            flex-wrap: wrap;
+        }
+
+        .paste-info-icon {
+            width: 22px;
+            height: 22px;
+            background: #edf2ff;
+            border: 1px solid #dce6ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4e73f8;
+            font-size: 11px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .paste-info a {
+            color: #4e73f8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .paste-info a:hover {
+            text-decoration: underline;
+        }
+
+        .paste-info-right {
+            margin-left: auto;
+        }
+
+        .paste-info-right a {
+            color: #4e73f8;
+            font-size: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .paste-input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .paste-input {
+            flex: 1;
+            height: 42px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 0 14px;
+            font-size: 13px;
+            font-family: "Montserrat", sans-serif;
+            color: #333;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #fff;
+            min-width: 0;
+        }
+
+        .paste-input::placeholder {
+            color: #bbb;
+        }
+
+        .paste-input:focus {
+            border-color: #4e73f8;
+        }
+
+        .validate-btn {
+            height: 42px;
+            padding: 0 22px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #4e73f8, #6f8cff);
+            color: #fff;
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+            flex-shrink: 0;
+        }
+
+        .validate-btn:hover {
+            opacity: 0.88;
+        }
+
+        .paste-hint {
+            margin-top: 8px;
+            font-size: 11px;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .paste-hint::before {
+            content: "•";
+            color: #4e73f8;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE - paste section */
+        @media (max-width: 600px) {
+            .paste-input-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .validate-btn {
+                width: 100%;
+                height: 44px;
+            }
+
+            .paste-info {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .paste-info-right {
+                margin-left: 0;
+            }
+        }
+
+        .import-header h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .collapse-import {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #ececec;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            flex-shrink: 0;
+            transition: 0.2s;
+        }
+
+        .collapse-import:hover {
+            background: #f5f5f7;
+        }
+
+        /* IMPORT CARDS */
+        .import-cards {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        /* CARD */
+        .import-card {
+            border: 1.5px solid #ececec;
+            border-radius: 12px;
+            padding: 18px;
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+
+        .import-card:hover {
+            border-color: #4e73f8;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(78,115,248,0.10);
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #f0f4ff;
+            border: 1.5px solid #dce6ff;
+            color: #4e73f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* LinkedIn-specific icon style matching the screenshot */
+        .card-icon .fa-linkedin {
+            font-size: 20px;
+            color: #0a66c2;
+        }
+
+        .import-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .import-card p {
+            font-size: 12px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .import-card a {
+            color: #4e73f8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .import-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+        .bottom-btn {
+            margin-top: 60px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 120px;
+            height: 46px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #4e73f8, #6f8cff);
+            color: #fff;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .next-btn:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           AVATAR FALLBACK
+        ========================= */
+        .avatar-fallback {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4e73f8, #6f8cff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .avatar-fallback-sm {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4e73f8, #6f8cff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* =========================
+           LARGE DESKTOP (1280px+)
+        ========================= */
+        @media (min-width: 1280px) {
+            .import-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* =========================
+           TABLET LANDSCAPE (1024px)
+        ========================= */
+        @media (max-width: 1024px) {
+            .import-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* =========================
+           TABLET PORTRAIT (768px)
+        ========================= */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 220px;
+            }
+
+            .main-content {
+                margin-left: 220px;
+                width: calc(100% - 220px);
+            }
+
+            .stepper {
+                gap: 10px;
+                padding: 12px 14px;
+            }
+
+            .step {
+                font-size: 13px;
+            }
+        }
+
+        /* =========================
+           MOBILE (768px and below)
+        ========================= */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .sidebar {
+                left: -260px;
+                width: 250px;
+                box-shadow: none;
+            }
+
+            .sidebar.active {
+                left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 14px;
+            }
+
+            .topbar {
+                margin-top: 65px;
+                padding: 14px 16px;
+            }
+
+            .top-profile-text {
+                display: none;
+            }
+
+            .import-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .stepper {
+                gap: 8px;
+                padding: 12px;
+            }
+
+            .step span {
+                display: none;
+            }
+
+            .active-step span {
+                display: inline;
+            }
+
+            .arrow {
+                display: none;
+            }
+
+            .active-step .arrow {
+                display: inline;
+            }
+
+            .content-wrapper {
+                padding: 16px;
+            }
+        }
+
+        /* =========================
+           SMALL MOBILE (480px)
+        ========================= */
+        @media (max-width: 480px) {
+            .topbar {
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .import-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-btn {
+                justify-content: center;
+                margin-top: 40px;
+            }
+
+            .next-btn {
+                width: 100%;
+            }
+
+            .stepper {
+                padding: 10px;
+                gap: 6px;
+            }
+
+            .step-icon, .step-iconnn {
+                width: 32px;
+                height: 32px;
+            }
+
+            .import-card {
+                padding: 14px;
+            }
+        }
+
+        /* =========================
+           EXTRA SMALL (360px)
+        ========================= */
+        @media (max-width: 360px) {
+            body {
+                font-size: 13px;
+            }
+
+            .topbar {
+                padding: 12px;
+                margin-top: 60px;
+            }
+
+            .breadcrumb {
+                font-size: 12px;
+            }
+
+            .import-header h3 {
+                font-size: 13px;
+            }
+
+            .content-wrapper {
+                padding: 12px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- LOGO -->
+        <div class="logo-section">
+            <div class="logo">
+                <!-- <i class="fa-solid fa-pen-ruler"></i> -->
+                <img src="./assets/Isolation_Mode.svg" alt="">
+                <h2>Frontend Task</h2>
+            </div>
+
+            <button class="collapse-btn">
+                <img src="./assets/panel-right-close.svg" alt="">
+            </button>
+        </div>
+
+        <!-- MENU -->
+        <nav class="menu">
+            <a href="#" class="menu-item active">
+                <img src="./assets/marketing.svg" alt="">
+                <span>Campaign</span>
+            </a>
+        </nav>
+
+        <!-- BOTTOM PROFILE -->
+        <div class="sidebar-bottom">
+
+            <div class="profile-card">
+
+                <div class="profile-top">
+                    <div class="profile-info">
+
+                        <img src="./assets/Active.png" alt="Profile">
+
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>Admin</p>
+                        </div>
+                    </div>
+
+                    <button class="logout-btn">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
+
+                <div class="email">
+                    <span>Email</span>
+                    <p>johndoe@gmail.com</p>
+                </div>
+
+            </div>
+
+            <!-- THEME TOGGLE -->
+            <div class="theme-toggle">
+                <button class="theme-btn active">
+                    <i class="fa-regular fa-sun"></i>
+                    Light
+                </button>
+
+                <button class="theme-btn">
+                    <i class="fa-regular fa-moon"></i>
+                    Dark
+                </button>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <p style="color: #3666EE;">Campaign</p>
+                <span><img src="./assets/⭐️ Icon.svg" alt=""></span>
+                <p>Advance Campaign</p>
+            </div>
+
+
+            <div class="top-profile">
+                <div class="top-profile-text">
+                    <h4>John Doe</h4>
+                    <span>Admin</span>
+                </div>
+
+                <div class="top-avatar">
+                    <img src="./assets/Active.png" alt="Avatar">
+                    <span class="status-dot"></span>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- CONTENT -->
+
+               <!-- CONTENT -->
+        <section class="content-wrapper">
+
+            <!-- STEPPER -->
+            <div class="stepper">
+
+                <div class="step active-step">
+                    <div class="step-iconnn">
+                        <i class="fa-solid fa-list-check" style="color:#fff; font-size:15px;"></i>
+                    </div>
+                    <span>Define Target Audience</span>
+                    <i class="fa-solid fa-angle-right arrow"></i>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <span>Sender Profiles</span>
+                    <i class="fa-solid fa-angle-right arrow"></i>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <span>Settings</span>
+                    <i class="fa-solid fa-angle-right arrow"></i>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fa-regular fa-rectangle-list"></i>
+                    </div>
+                    <span>Stats</span>
+                </div>
+
+            </div>
+
+            <!-- IMPORT SECTION -->
+            <div class="import-section">
+
+                <!-- HEADER -->
+                <div class="import-header">
+                    <div class="import-left">
+                        <span class="circle"></span>
+                        <h3>Choose Import Method</h3>
+                    </div>
+                    <button class="collapse-import" id="collapseImport" aria-label="Toggle import section">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </button>
+                </div>
+
+                <!-- CARDS -->
+                <div class="import-cards" id="importCards">
+
+                    <div class="import-card selected" data-card="linkedin">
+                        <span class="card-check"><i class="fa-solid fa-check"></i></span>
+                        <div class="card-icon" style="background:#e8f0fe; border-color:#c5d8f8;">
+                            <i class="fa-brands fa-linkedin" style="color:#0a66c2; font-size:20px;"></i>
+                        </div>
+                        <h4>LinkedIn Search</h4>
+                        <p>(Basic, Sales Nav, Post,<br>Group or Event URL)</p>
+                    </div>
+
+                    <div class="import-card" data-card="csv">
+                        <span class="card-check"><i class="fa-solid fa-check"></i></span>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-file-csv"></i>
+                        </div>
+                        <h4>Upload CSV File</h4>
+                        <p>Upload LinkedIn profiles via CSV. <a href="#">Download Sample</a></p>
+                    </div>
+
+                    <div class="import-card" data-card="lookalike">
+                        <span class="card-check"><i class="fa-solid fa-check"></i></span>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h4>Lookalike Audience</h4>
+                        <p>Use Lead Finder to find audience.</p>
+                    </div>
+
+                    <div class="import-card" data-card="webhook">
+                        <span class="card-check"><i class="fa-solid fa-check"></i></span>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-plug"></i>
+                        </div>
+                        <h4>Inbound Webhook</h4>
+                        <p>Sync leads from zapier, n8n make in real time</p>
+                    </div>
+
+                </div>
+
+            <!-- PASTE LINKEDIN SEARCH URL SECTION -->
+            <div class="paste-section" id="pasteSection">
+
+                <div class="paste-header">
+                    <div class="paste-header-left">
+                        <span class="paste-circle"></span>
+                        <h3>Paste LinkedIn Search URL</h3>
+                    </div>
+                </div>
+
+                <div class="paste-body">
+
+                    <div class="paste-info">
+                        <div class="paste-info-icon">
+                            <i class="fa-solid fa-info"></i>
+                        </div>
+                        <span>
+                            Find your target audience with
+                            <a href="#">LinkedIn Search</a> or
+                            <a href="#">Sales Navigator</a> or
+                            <a href="#">Post URL</a> or
+                            <a href="#">Group URL</a>
+                        </span>
+                        <div class="paste-info-right">
+                            <a href="#"><i class="fa-regular fa-circle-question"></i> Search Guide</a>
+                        </div>
+                    </div>
+
+                    <div class="paste-input-row">
+                        <input
+                            type="text"
+                            class="paste-input"
+                            id="linkedinUrl"
+                            placeholder="https://www.linkedin.com/search/results/people/?keywords="
+                        />
+                        <button class="validate-btn" id="validateBtn">Validate</button>
+                    </div>
+
+                    <p class="paste-hint">Paste the search URL directly from LinkedIn</p>
+
+                </div>
+
+            </div>
+
+
+            </div>
+
+
+
+            <!-- FOOTER BUTTON -->
+            <div class="bottom-btn">
+                <button class="next-btn">Next</button>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+
+</body>
+
+</html>
+    <!-- JS -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+
+        /* =========================
+   WORKFLOW MODAL
+========================= */
+
+        const campaignBtn = document.querySelector(".campaign-btn");
+        const workflowModal = document.getElementById("workflowModal");
+        const closeModal = document.getElementById("closeModal");
+        const secondaryCloseBtn = document.querySelector(".secondary-btn");
+
+        /* OPEN MODAL */
+
+        campaignBtn.addEventListener("click", () => {
+
+            workflowModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+        });
+
+        /* CLOSE MODAL */
+
+        function closeWorkflowModal() {
+
+            workflowModal.classList.remove("active");
+            document.body.style.overflow = "";
+
+        }
+
+        closeModal.addEventListener("click", closeWorkflowModal);
+
+        secondaryCloseBtn.addEventListener("click", closeWorkflowModal);
+
+        /* CLOSE OUTSIDE */
+
+        workflowModal.addEventListener("click", (e) => {
+
+            if (e.target === workflowModal) {
+                closeWorkflowModal();
+            }
+
+        });
+
+    </script>

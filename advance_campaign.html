@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign Workflow</title>
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="advance_campaign.css">
+    <link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- LOGO -->
+        <div class="logo-section">
+            <div class="logo">
+                <!-- <i class="fa-solid fa-pen-ruler"></i> -->
+                <img src="./assets/Isolation_Mode.svg" alt="">
+                <h2>Frontend Task</h2>
+            </div>
+
+            <button class="collapse-btn">
+                <img src="./assets/panel-right-close.svg" alt="">
+            </button>
+        </div>
+
+        <!-- MENU -->
+        <nav class="menu">
+            <a href="#" class="menu-item active">
+                <img src="./assets/marketing.svg" alt="">
+                <span>Campaign</span>
+            </a>
+        </nav>
+
+        <!-- BOTTOM PROFILE -->
+        <div class="sidebar-bottom">
+
+            <div class="profile-card">
+
+                <div class="profile-top">
+                    <div class="profile-info">
+
+                        <img src="./assets/Active.png" alt="Profile">
+
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>Admin</p>
+                        </div>
+                    </div>
+
+                    <button class="logout-btn">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
+
+                <div class="email">
+                    <span>Email</span>
+                    <p>johndoe@gmail.com</p>
+                </div>
+
+            </div>
+
+            <!-- THEME TOGGLE -->
+            <div class="theme-toggle">
+                <button class="theme-btn active">
+                    <i class="fa-regular fa-sun"></i>
+                    Light
+                </button>
+
+                <button class="theme-btn">
+                    <i class="fa-regular fa-moon"></i>
+                    Dark
+                </button>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <p style="color: #3666EE;">Campaign</p>
+                <span><img src="./assets/⭐️ Icon.svg" alt=""></span>
+                <p>Advance Campaign</p>
+            </div>
+
+
+            <div class="top-profile">
+                <div class="top-profile-text">
+                    <h4>John Doe</h4>
+                    <span>Admin</span>
+                </div>
+
+                <div class="top-avatar">
+                    <img src="./assets/Active.png" alt="Avatar">
+                    <span class="status-dot"></span>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- CONTENT -->
+
+        <section class="content-wrapper">
+
+            <!-- STEPPER -->
+
+            <div class="stepper">
+
+                <div class="step active-step">
+
+                    <div class="step-iconnn">
+                        <!-- <i class="fa-solid fa-list-check"></i> -->
+                        <img src="./assets/default.png" alt="">
+                    </div>
+
+                    <span>Define Target Audience</span>
+
+                    <i class="fa-solid fa-angle-right arrow"></i>
+
+                </div>
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <span>Sender Profiles</span>
+
+                    <i class="fa-solid fa-angle-right arrow"></i>
+
+                </div>
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+
+                    <span>Settings</span>
+
+                    <i class="fa-solid fa-angle-right arrow"></i>
+
+                </div>
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        <i class="fa-regular fa-rectangle-list"></i>
+                    </div>
+
+                    <span>Stats</span>
+
+                </div>
+
+            </div>
+
+            <!-- IMPORT SECTION -->
+
+            <div class="import-section">
+
+                <!-- HEADER -->
+
+                <div class="import-header">
+
+                    <div class="import-left">
+                        <h3>Choose Import Method</h3>
+                    </div>
+                    <span class="circle"></span>
+
+                    <button class="collapse-import">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </button>
+
+                </div>
+
+                <!-- CARDS -->
+
+                <div class="import-cards">
+
+                    <!-- CARD -->
+
+                    <div class="import-card">
+
+                        <div class="card-icon">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+
+                        <h4>LinkedIn Search</h4>
+
+                        <p>
+                            (Basic, Sales Nav, Post,
+                            Group or Event URL)
+                        </p>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="import-card">
+
+                        <div class="card-icon">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+
+                        <h4>Upload CSV File</h4>
+
+                        <p>
+                            Upload LinkedIn profiles
+                            via CSV.
+                            <a href="#">Download Sample</a>
+                        </p>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="import-card">
+
+                        <div class="card-icon">
+                            <!-- <i class="fa-solid fa-user-plus"></i> -->
+                             <img src="./assets//user-list.png">
+                        </div>
+
+                        <h4>Lead Lists</h4>
+
+                        <p>
+                            Use Lead Finder to find audience.
+                        </p>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="import-card">
+
+                        <div class="card-icon">
+                            <!-- <i class="fa-brands fa-linkedin"></i> -->
+                             <img src="./assets/linkedin-01.png">
+                        </div>
+
+                        <h4>Inbound Webhook</h4>
+
+                        <p>
+                            Sync leads from zapier,
+                            n8n make in real time
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER BUTTON -->
+
+            <div class="bottom-btn">
+
+                <button class="next-btn">
+                    Next
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+
+</body>
+
+</html>
+    <!-- JS -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+
+        /* =========================
+   WORKFLOW MODAL
+========================= */
+
+        const campaignBtn = document.querySelector(".campaign-btn");
+        const workflowModal = document.getElementById("workflowModal");
+        const closeModal = document.getElementById("closeModal");
+        const secondaryCloseBtn = document.querySelector(".secondary-btn");
+
+        /* OPEN MODAL */
+
+        campaignBtn.addEventListener("click", () => {
+
+            workflowModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+        });
+
+        /* CLOSE MODAL */
+
+        function closeWorkflowModal() {
+
+            workflowModal.classList.remove("active");
+            document.body.style.overflow = "";
+
+        }
+
+        closeModal.addEventListener("click", closeWorkflowModal);
+
+        secondaryCloseBtn.addEventListener("click", closeWorkflowModal);
+
+        /* CLOSE OUTSIDE */
+
+        workflowModal.addEventListener("click", (e) => {
+
+            if (e.target === workflowModal) {
+                closeWorkflowModal();
+            }
+
+        });
+
+    </script>

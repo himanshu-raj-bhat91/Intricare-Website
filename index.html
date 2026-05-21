@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Task Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- LOGO -->
+        <div class="logo-section">
+            <div class="logo">
+                <!-- <i class="fa-solid fa-pen-ruler"></i> -->
+                <img src="./assets/Isolation_Mode.svg" alt="">
+                <h2>Frontend Task</h2>
+            </div>
+
+            <button class="collapse-btn">
+                <img src="./assets/panel-right-close.svg" alt="">
+            </button>
+        </div>
+
+        <!-- MENU -->
+        <nav class="menu">
+            <a href="#" class="menu-item active">
+                <img src="./assets/marketing.svg" alt="">
+                <span>Campaign</span>
+            </a>
+        </nav>
+
+        <!-- BOTTOM PROFILE -->
+        <div class="sidebar-bottom">
+
+            <div class="profile-card">
+
+                <div class="profile-top">
+                    <div class="profile-info">
+
+                        <img src="./assets/Active.png" alt="Profile">
+
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>Admin</p>
+                        </div>
+                    </div>
+
+                    <button class="logout-btn">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
+
+                <div class="email">
+                    <span>Email</span>
+                    <p>johndoe@gmail.com</p>
+                </div>
+
+            </div>
+
+            <!-- THEME TOGGLE -->
+            <div class="theme-toggle">
+                <button class="theme-btn active">
+                    <i class="fa-regular fa-sun"></i>
+                    Light
+                </button>
+
+                <button class="theme-btn">
+                    <i class="fa-regular fa-moon"></i>
+                    Dark
+                </button>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <!-- <i class="fa-solid fa-house"></i> -->
+                <img src="./assets/home icon.svg" alt="">
+                <span><img src="./assets/⭐️ Icon.svg" alt=""></span>
+                <p>Campaign</p>
+            </div>
+
+            <div class="top-profile">
+                <div class="top-profile-text">
+                    <h4>John Doe</h4>
+                    <span>Admin</span>
+                </div>
+
+                <div class="top-avatar">
+                    <img src="./assets/Active.png" alt="Avatar">
+                    <span class="status-dot"></span>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- CONTENT BOX -->
+        <section class="content-wrapper">
+
+            <!-- FILTER AREA -->
+            <div class="filter-area">
+
+                <div class="select-box">
+                    <select>
+                        <option>All</option>
+                        <option>Active</option>
+                        <option>Pending</option>
+                    </select>
+                </div>
+
+                <div class="search-box">
+                    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                    <img src="./assets/search-01.png" alt="">
+                    <input type="text" placeholder="Search">
+                </div>
+
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div class="empty-state">
+
+                <img src="./assets/object-center.svg" alt="Empty State">
+
+                <button class="campaign-btn">
+                    New Campaign
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+     WORKFLOW MODAL
+========================= -->
+
+
+<div class="workflow-modal-overlay" id="workflowModal">
+
+    <div class="workflow-modal">
+
+        <!-- =========================
+             MODAL HEADER
+        ========================== -->
+
+        <div class="workflow-header">
+
+            <div class="workflow-header-content">
+
+                <h2>Select Workflow Mode</h2>
+
+                <p>
+                    Choose how you want your campaign to behave
+                </p>
+
+            </div>
+
+            <!-- CLOSE BUTTON -->
+
+            <button class="close-modal" id="closeModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <!-- =========================
+             MODAL BODY
+        ========================== -->
+
+        <div class="workflow-body">
+
+            <!-- =========================
+                 ADVANCED WORKFLOW
+            ========================== -->
+
+            <div class="workflow-card active-workflow">
+
+                <!-- LEFT SECTION -->
+
+                <div class="workflow-left">
+
+                    <!-- RADIO BUTTON -->
+
+                    <div class="radio active-radio"></div>
+
+                    <!-- CONTENT -->
+
+                    <div class="workflow-content">
+
+                        <!-- TITLE -->
+
+                        <div class="workflow-title-row">
+
+                            <h3>
+                                Advanced Workflow
+                            </h3>
+
+                            <span class="recommended-badge">
+                                Recommended
+                            </span>
+
+                        </div>
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="workflow-desc">
+                            Best for high-volume outreach
+                        </p>
+
+                        <!-- FEATURES -->
+
+                        <div class="workflow-tags">
+
+                            <span class="workflow-tag">
+                                Conditional logic
+                            </span>
+
+                            <span class="workflow-tag">
+                                Multiple paths
+                            </span>
+
+                            <span class="workflow-tag">
+                                More control
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT IMAGE -->
+
+                <div class="workflow-image">
+
+                    <img
+                        src="./assets/Frame 12.png"
+                        alt="Advanced Workflow"
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- =========================
+                 STANDARD WORKFLOW
+            ========================== -->
+
+            <div class="workflow-card">
+
+                <!-- LEFT SECTION -->
+
+                <div class="workflow-left">
+
+                    <!-- RADIO BUTTON -->
+
+                    <div class="radio"></div>
+
+                    <!-- CONTENT -->
+
+                    <div class="workflow-content">
+
+                        <!-- TITLE -->
+
+                        <div class="workflow-title-row">
+
+                            <h3>
+                                Standard Workflow
+                            </h3>
+
+                        </div>
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="workflow-desc">
+                            Best for beginners
+                        </p>
+
+                        <!-- FEATURES -->
+
+                        <div class="workflow-tags">
+
+                            <span class="workflow-tag">
+                                Linear steps
+                            </span>
+
+                            <span class="workflow-tag">
+                                No conditions
+                            </span>
+
+                            <span class="workflow-tag">
+                                Easy setup
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT IMAGE -->
+
+                <div class="workflow-image">
+
+                    <img
+                        src="./assets/Frame 11.png"
+                        alt="Standard Workflow"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             MODAL FOOTER
+        ========================== -->
+
+        <div class="workflow-footer">
+
+            <button class="modal-btn secondary-btn">
+
+                Close
+
+            </button>
+
+            <button class="modal-btn primary-btn">
+
+                Next
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- JS -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+
+        /* =========================
+   WORKFLOW MODAL
+========================= */
+
+        const campaignBtn = document.querySelector(".campaign-btn");
+        const workflowModal = document.getElementById("workflowModal");
+        const closeModal = document.getElementById("closeModal");
+        const secondaryCloseBtn = document.querySelector(".secondary-btn");
+
+        /* OPEN MODAL */
+
+        campaignBtn.addEventListener("click", () => {
+
+            workflowModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+        });
+
+        /* CLOSE MODAL */
+
+        function closeWorkflowModal() {
+
+            workflowModal.classList.remove("active");
+            document.body.style.overflow = "";
+
+        }
+
+        closeModal.addEventListener("click", closeWorkflowModal);
+
+        secondaryCloseBtn.addEventListener("click", closeWorkflowModal);
+
+        /* CLOSE OUTSIDE */
+
+        workflowModal.addEventListener("click", (e) => {
+
+            if (e.target === workflowModal) {
+                closeWorkflowModal();
+            }
+
+        });
+
+        /* =========================
+           WORKFLOW CARD SELECT
+        ========================= */
+
+        const workflowCards = document.querySelectorAll(".workflow-card");
+
+        workflowCards.forEach(card => {
+
+            card.addEventListener("click", () => {
+
+                workflowCards.forEach(c => {
+                    c.classList.remove("active-workflow");
+
+                    const radio = c.querySelector(".radio");
+                    radio.classList.remove("active-radio");
+                });
+
+                card.classList.add("active-workflow");
+
+                const activeRadio = card.querySelector(".radio");
+                activeRadio.classList.add("active-radio");
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
