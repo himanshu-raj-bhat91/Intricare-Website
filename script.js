@@ -6,11 +6,7 @@ const menuToggle = document.getElementById("menuToggle");
 const sidebar = document.getElementById("sidebar");
 const menuIcon = menuToggle.querySelector("i");
 
-/* TOGGLE SIDEBAR */
-
-menuToggle.addEventListener("click", (e) => {
-
-    e.stopPropagation();
+menuToggle.addEventListener("click", () => {
 
     sidebar.classList.toggle("active");
 
@@ -25,36 +21,10 @@ menuToggle.addEventListener("click", (e) => {
 
     } else {
 
-        closeSidebar();
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
 
-    }
-
-});
-
-/* CLOSE FUNCTION */
-
-function closeSidebar() {
-
-    sidebar.classList.remove("active");
-
-    menuIcon.classList.remove("fa-xmark");
-    menuIcon.classList.add("fa-bars");
-
-    document.body.style.overflow = "";
-
-}
-
-/* CLOSE SIDEBAR WHEN CLICK OUTSIDE */
-
-document.addEventListener("click", (e) => {
-
-    if (
-        window.innerWidth <= 768 &&
-        !sidebar.contains(e.target) &&
-        !menuToggle.contains(e.target)
-    ) {
-
-        closeSidebar();
+        document.body.style.overflow = "";
 
     }
 
@@ -66,8 +36,79 @@ window.addEventListener("resize", () => {
 
     if (window.innerWidth > 768) {
 
-        closeSidebar();
+        sidebar.classList.remove("active");
+
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+
+        document.body.style.overflow = "";
 
     }
 
 });
+        /* =========================
+   WORKFLOW MODAL
+========================= */
+
+        const campaignBtn = document.querySelector(".campaign-btn");
+        const workflowModal = document.getElementById("workflowModal");
+        const closeModal = document.getElementById("closeModal");
+        const secondaryCloseBtn = document.querySelector(".secondary-btn");
+
+        /* OPEN MODAL */
+
+        campaignBtn.addEventListener("click", () => {
+
+            workflowModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+        });
+
+        /* CLOSE MODAL */
+
+        function closeWorkflowModal() {
+
+            workflowModal.classList.remove("active");
+            document.body.style.overflow = "";
+
+        }
+
+        closeModal.addEventListener("click", closeWorkflowModal);
+
+        secondaryCloseBtn.addEventListener("click", closeWorkflowModal);
+
+        /* CLOSE OUTSIDE */
+
+        workflowModal.addEventListener("click", (e) => {
+
+            if (e.target === workflowModal) {
+                closeWorkflowModal();
+            }
+
+        });
+
+        /* =========================
+           WORKFLOW CARD SELECT
+        ========================= */
+
+        const workflowCards = document.querySelectorAll(".workflow-card");
+
+        workflowCards.forEach(card => {
+
+            card.addEventListener("click", () => {
+
+                workflowCards.forEach(c => {
+                    c.classList.remove("active-workflow");
+
+                    const radio = c.querySelector(".radio");
+                    radio.classList.remove("active-radio");
+                });
+
+                card.classList.add("active-workflow");
+
+                const activeRadio = card.querySelector(".radio");
+                activeRadio.classList.add("active-radio");
+
+            });
+
+        });
